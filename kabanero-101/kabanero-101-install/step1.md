@@ -21,7 +21,7 @@ Download the Appsody package for RHEL
 
 Install the Appsody package
 
-`sudo yum install ./appsody-0.4.9-1.x86_64.rpm`{{execute}}
+`sudo yum -y install ./appsody-0.4.9-1.x86_64.rpm`{{execute}}
 
 Verify the installation
 
