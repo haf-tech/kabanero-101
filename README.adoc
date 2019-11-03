@@ -18,6 +18,7 @@ toc::[]
 == Overview
 
 This is a Katacoda course for Kabanero.
+link:https://www.katacoda.com/haf-tech/courses/kabanero-101[]
 
 == Intro
 
