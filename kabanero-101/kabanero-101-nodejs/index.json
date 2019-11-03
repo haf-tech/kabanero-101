@@ -1,4 +1,5 @@
 {
+  "noindex": true,
   "title": "Nodejs example",
   "description": "Use Kabanero and Appsody to create a new NodeJS application and deploy it into OCP",
   "difficulty": "Intermediate",
