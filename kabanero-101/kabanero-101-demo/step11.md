@@ -1,6 +1,6 @@
 Kabanero and Appsody with NodeJS example
 
-## (Optionial) OCP Login
+## (Optional) OCP Login
 
 Initially you are logged in as cluster admin. To switch to developer from the _Terminal_ run:
 
