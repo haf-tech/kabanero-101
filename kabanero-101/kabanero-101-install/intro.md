@@ -1,0 +1,1 @@
+This scenario handles the Kabanero pre-requisites and installs all the necessary tools.
