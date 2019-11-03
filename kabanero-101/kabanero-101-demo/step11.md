@@ -17,11 +17,15 @@ Use the same credentials to log into the web console.
 
 Use *nodejs-express* Appsody stack for creating a new application
 
-`mkdir -p examples/nodejs-express && appsody init nodejs-express`{{execute}}
+`mkdir -p /tmp/examples/nodejs-express && cd /tmp/examples/nodejs-express && appsody init nodejs-express`{{execute}}
 
 Check the project template
 
 `tree .`{{execute}}
+
+In SELinux environment is it necessary to allow the docker daemon the access of the mounted project directory:
+
+`chcon -Rt svirt_sandbox_file_t /tmp/examples/nodejs-express`{{execute}}
 
 Run the application. Appsody creates and executes docker container.
 

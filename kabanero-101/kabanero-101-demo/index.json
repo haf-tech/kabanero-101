@@ -1,9 +1,9 @@
 {
   "noindex": true,
-  "title": "Installation",
-  "description": "Prepare the environment and install the necessary tools",
+  "title": "Kabanero Workshop",
+  "description": "Kabanero intro with installatoin and different examples",
   "difficulty": "Intermediate",
-  "time": "15",
+  "time": "60",
   "details": {
     "steps": [
       {
