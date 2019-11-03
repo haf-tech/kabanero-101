@@ -6,6 +6,11 @@
       "course_id": "kabanero-101-install",
       "title": "Installation",
       "description": "Prepare the environment and install the necessary tools"
+    },
+    {
+      "course_id": "kabanero-101-nodejs",
+      "title": "NodeJS example",
+      "description": "Use Kabanero and Appsody to create a new NodeJS application and deploy it into OCP"
     }
   ]
 }

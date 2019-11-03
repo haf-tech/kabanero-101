@@ -1,0 +1,40 @@
+{
+  "title": "Nodejs example",
+  "description": "Use Kabanero and Appsody to create a new NodeJS application and deploy it into OCP",
+  "difficulty": "Intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "code": "set-env.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "openshift-3-11-cluster",
+    "port": 8443
+  }
+}
