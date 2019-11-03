@@ -40,7 +40,10 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal"
+    "showide": true,
+    "ide": "ssh host01 '/opt/start-vscode.sh'",
+    "idePort": 23000,
+    "uilayout": "terminal"
   },
   "backend": {
     "imageid": "openshift-3-11-cluster",

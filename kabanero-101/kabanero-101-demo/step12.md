@@ -15,13 +15,9 @@ Use the same credentials to log into the web console.
 
 ## Create Quarkus application
 
-Add Appsody experimental Hub
-
-`appsody repo add appsodyex //github.com/appsody/stacks/releases/latest/download/experimental-index.yaml`{{execute}}
-
 Use *quarkus* Appsody stack for creating a new application
 
-`mkdir -p /tmp/examples/quarkus && cd /tmp/examples/quarkus && appsody init appsodyex/quarkus`{{execute}}
+`mkdir -p /tmp/examples/quarkus && cd /tmp/examples/quarkus && appsody init experimental/quarkus`{{execute}}
 
 Check the project template
 
