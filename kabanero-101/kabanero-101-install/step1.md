@@ -13,7 +13,23 @@ This will log you in using the credentials:
 
 Use the same credentials to log into the web console.
 
-## Task
+## Task RHEL/CentOS
+
+Download the Appsody package for RHEL
+
+`mkdir -p /tmp/appsody && cd /tmp/appsody && wget https://github.com/appsody/appsody/releases/download/0.4.9/appsody-0.4.9-1.x86_64.rpm`{{execute}}
+
+Install the Appsody package
+
+`sudo yum install ./appsody-0.4.9-1.x86_64.rpm`{{execute}}
+
+Verify the installation
+
+`appsody list`{{execute}}
+
+
+
+## Task Ubuntu/Debian
 
 Download the Appsody package for Ubuntu
 
