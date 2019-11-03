@@ -14,8 +14,16 @@ Install Kabanero Foundation, with the following paramters
 
 ``ENABLE_KAPPNAV=yes openshift_master_default_subdomain=[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com ./install-kabanero-foundation.sh``{{execute}}
 
-Verify the installation and get the routes to the Kabanero landing page
+Install the Kabanero Custom Resource
+
+`oc apply -n kabanero -f https://raw.githubusercontent.com/kabanero-io/kabanero-operator/0.2.0/config/samples/default.yaml`{{execute}}
+
+Verify the installation and get the routes to the Kabanero landing and Tekton Dashboard pages
 
 `oc get routes -n kabanero`{{execute}}
+
+Open Tekton dashboard
+
+`https://$(oc get routes tekton-dashboard -n kabanero -o jsonpath='{.spec.host}'):8443`{{open}}
 
 
