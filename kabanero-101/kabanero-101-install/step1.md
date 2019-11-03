@@ -8,7 +8,7 @@ Download the Appsody package for Ubuntu
 
 Install the Appsody package
 
-`sudo apt install -f appsody_0.4.9_amd64.deb`{{execute}}
+`sudo apt install -f ./appsody_0.4.9_amd64.deb`{{execute}}
 
 Verify the installation
 

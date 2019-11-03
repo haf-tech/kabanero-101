@@ -1,0 +1,51 @@
+= Kabanero 101
+:author: Hafid Haddouti
+:toc: macro
+:toclevels: 4
+
+Kabanero 101 - Intro and working examples.
+
+.Article properties
+|===
+| Category | Cloud Development
+| Status | Done
+| Tags | Cloud, Microservice, Kubernetes, Development, Knative
+| URL | n/a
+|===
+
+toc::[]
+
+== Overview
+
+This is a Katacoda course for Kabanero.
+
+== Intro
+
+Kabanero is an Open Source project and represents
+[quote, Kabanero]
+----
+A modern microservices-based framework that simplifies development, build and continuous deploy of apps for Kubernetes 
+----
+
+The principles and objectives
+
+* 100% open source
+* collaboration for Arch/Dev/Ops roles/activities
+** Architect: Governance, Architecture Policies, Technology selection
+** Developer: Re-use pre-defined stacks/collections, unconcerned about infrastructure
+** Operator: Manage the cluster and base frameworks
+* predefined collections ("solutions") with build, deploy, monitoring and management capabilities
+* define a generic way of development and deployment, supporting DevOps Tools
+* support extension points in the entire workflow
+
+
+== License
+
+This article is licensed under the Apache License, Version 2.
+Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant
+to their own separate licenses. Contributions are subject to the
+link:https://developercertificate.org/[Developer Certificate of Origin, Version 1.1] and the
+link:https://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2].
+
+See also link:https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN[Apache License FAQ]
+.
