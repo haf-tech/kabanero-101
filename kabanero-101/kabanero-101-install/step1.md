@@ -2,7 +2,7 @@ Install Appsody (CLI).
 
 ## OCP Login
 
-To login to the OpenShift cluster from the _Terminal_ run:
+Initially you are logged in as cluster admin. To switch to developer from the _Terminal_ run:
 
 ``oc login -u developer -p developer  [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com``{{execute}}
 

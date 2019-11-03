@@ -22,8 +22,12 @@ Verify the installation and get the routes to the Kabanero landing and Tekton Da
 
 `oc get routes -n kabanero`{{execute}}
 
+Wait that all pods are up and running
+
+`watch oc get pods -n kabanero`{{execute}}
+
 Open Tekton dashboard
 
-`https://$(oc get routes tekton-dashboard -n kabanero -o jsonpath='{.spec.host}'):8443`{{open}}
+``td=$(oc get routes tekton-dashboard -n kabanero -o jsonpath='{.spec.host}') http://$td:80``{{open}}
 
 
