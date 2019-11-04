@@ -29,9 +29,9 @@ In SELinux environment is it necessary to allow the docker daemon the access of 
 
 Run the application. Appsody creates and executes docker container.
 
-`appsody run`{{execute}}
+`appsody run -v -p 8888:8080`{{execute}}
 
 Open the main page
 
-`http://localhost:8080`{{open}}
+`http://localhost:8888`{{open}}
 
