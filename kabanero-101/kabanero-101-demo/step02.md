@@ -4,9 +4,9 @@ Kabanero CLI manages the Kabanero collections.
 
 ## Task
 
-Clone the git repository with the installation scripts
+Clone the git repository with the installation scripts (branch/version 0.2.0)
 
-`mkdir -p /tmp/kabanero-foundation && cd /tmp/kabanero-foundation && git clone https://github.com/kabanero-io/kabanero-foundation.git && cd kabanero-foundation/scripts`{{execute}}
+`mkdir -p /tmp/kabanero-foundation && cd /tmp/kabanero-foundation && git clone -b 0.2.0 --single-branch  https://github.com/kabanero-io/kabanero-foundation.git && cd kabanero-foundation/scripts`{{execute}}
 
 Install Kabanero Foundation, with the following paramters
 * Set the Subdomain
