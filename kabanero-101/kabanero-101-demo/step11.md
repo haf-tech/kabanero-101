@@ -33,5 +33,6 @@ Run the application. Appsody creates and executes docker container (for Katacoda
 
 Open the main page
 
-`http://localhost:3000`{{open}}
+Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com``{{open}}
+Local machine: `http://localhost:3000`{{open}}
 
