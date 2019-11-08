@@ -17,11 +17,11 @@ Use the same credentials to log into the web console.
 
 Download the Appsody package for RHEL
 
-`mkdir -p /tmp/appsody && cd /tmp/appsody && wget https://github.com/appsody/appsody/releases/download/0.4.9/appsody-0.4.9-1.x86_64.rpm`{{execute}}
+`mkdir -p /tmp/appsody && cd /tmp/appsody && wget https://github.com/appsody/appsody/releases/download/0.4.10/appsody-0.4.10-1.x86_64.rpm`{{execute}}
 
 Install the Appsody package
 
-`sudo yum -y install ./appsody-0.4.9-1.x86_64.rpm`{{execute}}
+`sudo yum -y install ./appsody-0.4.10-1.x86_64.rpm`{{execute}}
 
 Verify the installation
 
@@ -29,7 +29,7 @@ Verify the installation
 
 
 
-## Task Ubuntu/Debian
+## (Optional) Task Ubuntu/Debian
 
 Download the Appsody package for Ubuntu
 
