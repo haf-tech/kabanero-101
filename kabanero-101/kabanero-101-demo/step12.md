@@ -27,9 +27,9 @@ In SELinux environment is it necessary to allow the docker daemon the access of 
 
 `chcon -Rt svirt_sandbox_file_t /tmp/examples/quarkus`{{execute}}
 
-Run the application. Appsody creates and executes docker container.
+Run the application. Appsody creates and executes docker container (for Katacoda: share the host network).
 
-`appsody run -v -p 8888:8080`{{execute}}
+`appsody run --network host`{{execute}}
 
 Open the main page
 
