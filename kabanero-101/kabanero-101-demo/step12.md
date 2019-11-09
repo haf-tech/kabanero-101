@@ -15,9 +15,13 @@ Use the same credentials to log into the web console.
 
 ## Build and generate deployment manifest
 
-Build the docker image
+Build the docker image (with setting the network option, which is relevant for Katacoda and CentOS)
 
-`cd ~/nodejs-express && appsody build -t nodejs-express-simple:v0.1`{{execute}}
+`cd ~/nodejs-express && appsody build --docker-options --network="host" -t nodejs-express-simple:v0.1`{{execute}}
+
+Verify the image
+
+`docker images | grep nodejs-express-simple`{{execute}}
 
 The deployment manifest is the definition for the Appsody operator.
 
