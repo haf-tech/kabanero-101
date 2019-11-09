@@ -17,7 +17,7 @@ Use the same credentials to log into the web console.
 
 Use *nodejs-express* Appsody stack for creating a new application
 
-`mkdir -p /tmp/examples/nodejs-express && cd /tmp/examples/nodejs-express && appsody init nodejs-express`{{execute}}
+`mkdir -p ~/nodejs-express && cd ~/nodejs-express && appsody init nodejs-express`{{execute}}
 
 Check the project template
 
@@ -25,7 +25,7 @@ Check the project template
 
 In SELinux environment is it necessary to allow the docker daemon the access of the mounted project directory:
 
-`chcon -Rt svirt_sandbox_file_t /tmp/examples/nodejs-express`{{execute}}
+`chcon -Rt svirt_sandbox_file_t ~/nodejs-express`{{execute}}
 
 Run the application. Appsody creates and executes docker container (for Katacoda: share the host network).
 
@@ -36,3 +36,28 @@ Open the main page
 Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com``{{open}}
 Local machine: `http://localhost:3000`{{open}}
 
+## Modify application code
+
+We will change the source code and any modification will be immediately available.
+
+Open the app.js
+`~/nodejs-express/app.js`{{open}}
+
+Add the new endpoint with a random sleep
+```javascript
+const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
+
+app.get('/echo/:val', (req, res) => {
+  let val = req.params.val;
+
+  let delay = Math.floor(1000 * (Math.random() * 5)); 
+  sleep(delay).then(() => {
+    res.send("Echo: " + val + "; delay=" + delay);
+  })
+  
+});
+```
+
+Call the new URL (in a new browser)
+Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/echo/a-value``{{open}}
+Local machine: `http://localhost:3000/echo/a-value`{{open}}

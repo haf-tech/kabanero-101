@@ -1,4 +1,4 @@
-Kabanero and Appsody with Quarkus example
+Kabanero and Appsody with NodeJS example
 
 ## (Optional) OCP Login
 
@@ -13,25 +13,27 @@ This will log you in using the credentials:
 
 Use the same credentials to log into the web console.
 
-## Create Quarkus application
+## Build and generate deployment manifest
 
-Use *quarkus* Appsody stack for creating a new application
+Build the docker image
 
-`mkdir -p /tmp/examples/quarkus && cd /tmp/examples/quarkus && appsody init experimental/quarkus`{{execute}}
+`cd ~/nodejs-express && appsody build -t nodejs-express-simple:v0.1`{{execute}}
 
-Check the project template
+The deployment manifest is the definition for the Appsody operator.
 
-`tree .`{{execute}}
+`cd ~/nodejs-express && appsody deploy --generate-only -t nodejs-express-simple:v0.1`{{execute}}
 
-In SELinux environment is it necessary to allow the docker daemon the access of the mounted project directory:
+Check the manifest file (e.g. the reference to the image)
 
-`chcon -Rt svirt_sandbox_file_t /tmp/examples/quarkus`{{execute}}
+`cat ~/nodejs-express/app-deploy.yaml`{{execute}}
 
-Run the application. Appsody creates and executes docker container (for Katacoda: share the host network).
+## Deploy
 
-`appsody run --network host`{{execute}}
+Create the namespace/project
 
-Open the main page
+`oc new-project demo-express`{{execute}}
 
-`http://localhost:8888`{{open}}
+Deploy the app using Appsody operator 
+
+`cd ~/nodejs-express && appsody deploy -t nodejs-express-simple:v0.1 --namespace demo-express`{{execute}}
 
