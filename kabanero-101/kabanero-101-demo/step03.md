@@ -1,8 +1,8 @@
-Install Kabanero CLI.
+(Optional) Install Kabanero CLI.
 
 Kabanero CLI manages the Kabanero collections.
 
-## Task
+## (Optional) Task
 
 Download Kabanero 0.2.0
 
