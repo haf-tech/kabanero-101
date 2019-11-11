@@ -1,6 +1,8 @@
 Install Kabanero Foundation.
 
-Kabanero CLI manages the Kabanero collections.
+## Target
+
+Installs Kabanero Foundation in the OCP cluster. The Kabanero Foundation contains all relevant cluster enhancement to enable Kabanero development and deployment.
 
 ## Task
 

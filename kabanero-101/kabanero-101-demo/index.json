@@ -1,9 +1,9 @@
 {
   "noindex": true,
   "title": "Kabanero Workshop",
-  "description": "Kabanero intro with installatoin and different examples",
+  "description": "Kabanero intro with installation and different examples",
   "difficulty": "Intermediate",
-  "time": "60",
+  "time": "90",
   "details": {
     "steps": [
       {

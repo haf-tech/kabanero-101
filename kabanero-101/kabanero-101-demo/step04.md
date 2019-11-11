@@ -1,5 +1,9 @@
 Configure and Test
 
+## Target
+
+Add a new Kabanero Collection.
+
 ## Task
 
 Add a Kabanero Collection Hub containing Appsody stacks

@@ -1,5 +1,9 @@
 Kabanero and Appsody with NodeJS example
 
+## Target
+
+Create and test a new `nodejs-express` application using an Appsody stack.
+
 ## (Optional) OCP Login
 
 Initially you are logged in as cluster admin. To switch to developer from the _Terminal_ run:

@@ -1,5 +1,9 @@
 Install Appsody (CLI).
 
+## Target
+
+Install Appsody on the RHEL/CentOS system using the rpm package. The result is a working Appsody instance.
+
 ## (Optional) OCP Login
 
 Initially you are logged in as cluster admin. To switch to developer from the _Terminal_ run:
