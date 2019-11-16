@@ -11,6 +11,10 @@ Following information about the environment and tools
 * OCPv4
 * Katacoda Editor considers files among /root and saves immediately after editing
 
+Versions
+* Kabanero 0.3.0.rc-3
+* Appsody 0.5.0
+
 
 # Hint
 

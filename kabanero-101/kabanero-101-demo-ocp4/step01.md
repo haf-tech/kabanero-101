@@ -17,15 +17,21 @@ This will log you in using the credentials:
 
 Use the same credentials to log into the web console.
 
+For the case admin permissions needed, use
+
+* **Username:** ``admin``
+* **Password:** ``admin``
+
+
 ## Task RHEL/CentOS
 
 Download the Appsody package for RHEL
 
-`mkdir -p /tmp/appsody && cd /tmp/appsody && wget https://github.com/appsody/appsody/releases/download/0.4.10/appsody-0.4.10-1.x86_64.rpm`{{execute}}
+`mkdir -p /tmp/appsody && cd /tmp/appsody && wget https://github.com/appsody/appsody/releases/download/0.5.0/appsody-0.5.0-1.x86_64.rpm`{{execute}}
 
 Install the Appsody package
 
-`sudo yum -y install ./appsody-0.4.10-1.x86_64.rpm`{{execute}}
+`sudo yum -y install ./appsody-0.5.0-1.x86_64.rpm`{{execute}}
 
 Verify the installation
 
