@@ -1,0 +1,51 @@
+{
+  "noindex": true,
+  "title": "Kabanero Workshop",
+  "description": "Kabanero intro with installation and different examples",
+  "difficulty": "Intermediate",
+  "time": "90",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step01.md"
+      },
+      {
+        "title": "Step 2",
+        "text": "step02.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step03.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step04.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step11.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "step12.md"
+      }
+    ],
+    "intro": {
+      "code": "set-env.sh",
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboard": "Dashboard",
+    "uilayout": "terminal-iframe"
+  },
+  "backend": {
+    "imageid": "openshift-4-2",
+    "port": 8443
+  }
+}

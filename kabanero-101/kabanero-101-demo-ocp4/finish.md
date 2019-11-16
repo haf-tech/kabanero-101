@@ -1,0 +1,1 @@
+Kabanero is installed and ready.

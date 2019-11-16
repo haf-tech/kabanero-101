@@ -28,8 +28,13 @@ Wait that all pods are up and running
 
 `watch oc get pods -n kabanero`{{execute}}
 
+## Get URLs
+
 Open Tekton dashboard
 
 ``td=$(oc get routes tekton-dashboard -n kabanero -o jsonpath='{.spec.host}') http://$td:80``{{open}}
 
+Open kAppNav UI
+
+`oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}`{{open}}
 
