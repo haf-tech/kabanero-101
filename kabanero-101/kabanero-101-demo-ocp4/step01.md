@@ -22,6 +22,7 @@ For the case admin permissions needed, use
 * **Username:** ``admin``
 * **Password:** ``admin``
 
+OCP Web console: ``https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com``{{open}}
 
 ## Task RHEL/CentOS
 
@@ -31,12 +32,24 @@ Download the Appsody package for RHEL
 
 Install the Appsody package
 
-`sudo yum -y install ./appsody-0.5.0-1.x86_64.rpm`{{execute}}
+`yum -y install ./appsody-0.5.0-1.x86_64.rpm`{{execute}}
 
 Verify the installation
 
 `appsody list`{{execute}}
 
+## Prepare CentOS 8
 
+Install config-manager plugin
+
+`dnf install -y 'dnf-command(config-manager)'`{{execute}}
+
+Add Docker repo
+
+`dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo`{{execute}}
+
+Install docker
+
+`dnf install -y docker-ce-3:18.09.1-3.el7`{{execute}}
 
 

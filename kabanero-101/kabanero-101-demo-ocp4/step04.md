@@ -8,7 +8,7 @@ Add a new Kabanero Collection.
 
 Add a Kabanero Collection Hub containing Appsody stacks
 
-`appsody repo add kabanero https://github.com/kabanero-io/collections/releases/download/0.2.1/kabanero-index.yaml`{{execute}}
+`appsody repo add kabanero https://github.com/kabanero-io/collections/releases/download/0.3.0-rc.4/kabanero-index.yaml`{{execute}}
 
 Verify the installation and see the stacks from the *Kabanero* hub
 

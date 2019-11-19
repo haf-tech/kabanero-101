@@ -21,7 +21,7 @@ Use the same credentials to log into the web console.
 
 Use *nodejs-express* Appsody stack for creating a new application
 
-`mkdir -p ~/nodejs-express && cd ~/nodejs-express && appsody init nodejs-express`{{execute}}
+`mkdir -p ~/nodejs-express && cd ~/nodejs-express && appsody init kabanero/nodejs-express`{{execute}}
 
 Check the project template
 

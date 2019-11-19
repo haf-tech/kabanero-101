@@ -7,9 +7,9 @@ This scenario handles an introduction in Kabanero with the following sub-topics
 * Use Tekton Pipeline
 
 Following information about the environment and tools
-* CentOS
-* OCPv4
-* Katacoda Editor considers files among /root and saves immediately after editing
+* CentOS 8
+* OCPv4.2
+* Docker explicitly installed (as prerequisite)
 
 Versions
 * Kabanero 0.3.0.rc-3

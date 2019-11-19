@@ -6,19 +6,17 @@ Installs Kabanero Foundation in the OCP cluster. The Kabanero Foundation contain
 
 ## Task
 
-Clone the git repository with the installation scripts (branch/version 0.2.0)
+Retrieve install script for Kabanero Operator and install the operator/foundation resources, with enabling kAppNav:
 
-`mkdir -p /tmp/kabanero-foundation && cd /tmp/kabanero-foundation && git clone -b 0.2.0 --single-branch  https://github.com/kabanero-io/kabanero-foundation.git && cd kabanero-foundation/scripts`{{execute}}
+`curl -s -L https://github.com/kabanero-io/kabanero-operator/releases/download/0.3.0-rc.3/install.sh -O && chmod +x install.sh`{{execute}}
 
-Install Kabanero Foundation, with the following paramters
-* Set the Subdomain
-* Enable kAppNav
+`ENABLE_KAPPNAV=yes ./install.sh`{{execute}}
 
-``ENABLE_KAPPNAV=yes openshift_master_default_subdomain=[[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com ./install-kabanero-foundation.sh``{{execute}}
+This will take a time until all resources are successfully deployed (approx 15min).
 
 Install the Kabanero Custom Resource
 
-`oc apply -n kabanero -f https://raw.githubusercontent.com/kabanero-io/kabanero-operator/0.2.0/config/samples/default.yaml`{{execute}}
+`oc apply -n kabanero -f https://raw.githubusercontent.com/kabanero-io/kabanero-operator/0.3.0-rc.3/config/samples/default.yaml`{{execute}}
 
 Verify the installation and get the routes to the Kabanero landing and Tekton Dashboard pages
 
@@ -32,9 +30,9 @@ Wait that all pods are up and running
 
 Open Tekton dashboard
 
-``td=$(oc get routes tekton-dashboard -n kabanero -o jsonpath='{.spec.host}') http://$td:80``{{open}}
+`td=$(oc get routes tekton-dashboard -n tekton-pipelines -o jsonpath='{.spec.host}') && echo "http://$td:80"`{{execute}}
 
 Open kAppNav UI
 
-`oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}`{{open}}
+`td=$(oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}') && echo "https://$td/kappnav-ui/"`{{execute}}
 
