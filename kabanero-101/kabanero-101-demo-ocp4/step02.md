@@ -32,7 +32,9 @@ Open Tekton dashboard
 
 `td=$(oc get routes tekton-dashboard -n tekton-pipelines -o jsonpath='{.spec.host}') && echo "http://$td:80"`{{execute}}
 
-Open kAppNav UI
+Open kAppNav UI - needs some time until the pods are ready
+
+`oc get pods -n kappnav`{{execute}}
 
 `td=$(oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}') && echo "https://$td/kappnav-ui/"`{{execute}}
 
