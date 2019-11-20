@@ -12,7 +12,7 @@ Following information about the environment and tools
 * Docker explicitly installed (as prerequisite)
 
 Versions
-* Kabanero 0.3.0.rc-3
+* Kabanero 0.3.0.rc.4
 * Appsody 0.5.0
 
 
