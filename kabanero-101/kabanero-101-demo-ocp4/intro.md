@@ -1,21 +1,15 @@
 # Overview
 
 This scenario handles an introduction in Kabanero with the following sub-topics
-* Install Kabanero and Appsody
+* Install Kabanero
 * Create a Nodejs-Express project
 * Deploy into OCP Cluster
-* Use Tekton Pipeline
+* Use Tekton Pipeline (manual)
 
 Following information about the environment and tools
 * CentOS 8
 * OCPv4.2
-* Docker explicitly installed (as prerequisite)
 
 Versions
-* Kabanero 0.3.0.rc.4
-* Appsody 0.5.0
+* Kabanero 0.3.0
 
-
-# Hint
-
-In some Appsody commands is it necessary to add `--network=host` to enable the access in Katacoda environment.
