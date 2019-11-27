@@ -7,13 +7,15 @@ Understand the build and deploy mechanism of Appsody.
 
 ## Build
 
+In case the application is still running from the previous step. Cancel the process ``strg+c`` or ``appsody stop``{{execute}} in the application directory.
+
 The build command from Appsody extracts the application into a local directory and creates the docker image. 
 
 `cd ~/nodejs-express`{{execute}}
 
 The build allows different parameters. It is advisable to set the Docker tag name, including a version number.
 
-`appsody build -t demo-express/k101-nodejs-express:v01`{{execute}}
+`appsody build -t demo-express/k101-nodejs-express:v0.1`{{execute}}
 
 Verify the created docker image
 
@@ -36,17 +38,6 @@ Open the browser
 * Local machine: `http://localhost:8080`{{open}}
 
 
-## Push
-
-The build command does not push the image automatically to a Container Registry. To do so use the `--push` or the `--push-url` flag. E.g. to push to OpenShift Registry
-
-`appsody build -t demo-express/k101-nodejs-express:v01 --push-url docker-registry-default.apps.bcaf.example.opentlc.com`{{execute}}
-
-Consider to replace the Registry URL with the right URL from your OpenShift cluster. To retrieve the URL
-
-* in OCPv4: `oc get route -n openshift-image-registry -o jsonpath='{.spec.host}'`
-* in OCPv3: `oc get route -n defautl -o jsonpath='{.spec.host}'`
-
 ## Extract
 
 To get a better insight about the generated docker image is it possible to check the files and configuration before they will be used for the docker image.
@@ -63,24 +54,75 @@ The application source code is in the directory ``user-app``
 
 `cd ~/extract/k101-nodejs-express/user-app`{{execute}}
 
+
+## Push
+
+Stop the application if still running from the previous step - ``strg+c`` or `appsody stop`{{execute}}.
+
+Get the oc cli command line with token from the OCP Console to login to the cluster
+
+OCP Login
+`oc login --token=ABC...Token --server=https://12344567-6443-shadow04.environments.katacoda.com`
+
+Docker Login
+`docker login -u $(oc whoami) -p $(oc whoami -t) https://docker-registry-default.example.com`
+
+oc expose svc image-registry
+oc get route
+
+vi /etc/docker/daemon.json
+systemctl restart docker.service
+
+----
+{
+    "bip":"172.18.0.1/24",
+    "debug": true,
+    "storage-driver": "overlay",
+    "insecure-registries": ["registry.test.training.katacoda.com:4567", "image-registry-openshift-image-registry.2886795280-80-shadow04.environments.katacoda.com"]
+}
+----
+
+
+docker login -u $(oc whoami) -p $(oc whoami -t) http://image-registry-openshift-image-registry.2886795280-80-shadow04.environments.katacoda.com
+
+
+
+The build command does not push the image automatically to a Container Registry. To do so use the `--push` or the `--push-url` flag. E.g. to push to OpenShift Registry
+
+`appsody build -t demo-express/k101-nodejs-express:v0.1 --push-url docker-registry-default.example.com`{{execute}}
+
+Consider to replace the Registry URL with the right URL from your OpenShift cluster. To retrieve the URL
+
+* in OCPv4: `oc get route -n openshift-image-registry -o jsonpath='{.spec.host}'`
+* in OCPv3: `oc get route -n defautl -o jsonpath='{.spec.host}'`
+
+Verify in the OCP cluster if the push created a new ImageStream in the project `demo-express`
+
+`oc get is -n demo-express`{{execute}}
+
 ## Deploy directly into OCP Cluster
 
 Appsody allows a direct deployment into a k8s/OCP cluster.
 For this is it mandatory that a current session to the OCP Cluster exists.
 
 OCP Login
-`oc login -u ... -p --server=https://consol.master...com`
+`oc login -u ... -p --server=https://consol.master.example.com`
 
 Docker Login
-`docker login -u $(oc whoami) -p $(oc whoami -t) https://image-registry-openshift-image-registry....com`
+`docker login -u $(oc whoami) -p $(oc whoami -t) https://docker-registry-default.example.com`
 
 And deploy the application to a target namespace
 
-`appsody deploy -t demo-express/k101-nodejs-express:v0.1 -n demo-express --push-url=image-registry-openshift-image-registry.....com`{{execute}}
+`appsody deploy -t demo-express/k101-nodejs-express:v0.1 -n demo-express --push-url=docker-registry-default.example.com`{{execute}}
 
 The logic builds the docker image, generates the manifest file (`app-deploy.yaml`) if not already available and deploy it using in general the Appsody operator into the cluster. The image will also be pushed to the OpenShift registry which is mandatory, so that the application/POD can pull the image.
 
 `oc policy add-role-to-user system:image-puller system:serviceaccount:kabanero:k101-nodejs-express --namespace=demo-express2`
+
+
+
+
+
 
 --
 

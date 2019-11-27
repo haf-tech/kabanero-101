@@ -30,17 +30,21 @@ Local machine: `http://localhost:3000`{{open}}
 
 ## Verification
 
+Open a *new* terminal and execute the next commands in the *new* terminal.
+
 See that a docker container is running
 
 `docker ps | grep nodejs-express`{{execute}}
 
 Also is possible to monitor the logs
 
-`docker log -f $(docker ps | grep nodejs-express | awk {'print $1'})`{{execute}}
+`docker logs -f $(docker ps | grep nodejs-express | awk {'print $1'})`{{execute}}
 
 
 
 ## Modify application code
+
+Use the IDE or access the file with `vi` or similar.
 
 We will change the source code and any modification will be immediately available.
 
