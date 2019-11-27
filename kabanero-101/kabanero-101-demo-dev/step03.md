@@ -15,7 +15,7 @@ Check the project template
 
 `tree .`{{execute}}
 
-In SELinux environment is it necessary to allow the docker daemon the access of the mounted project directory:
+In SELinux environment is it necessary to allow the docker daemon the access of the mounted project directory. In general not needed for Ubuntu:
 
 `chcon -Rt svirt_sandbox_file_t ~/nodejs-express`{{execute}}
 
@@ -70,4 +70,5 @@ Call the new URL (in a new browser)
 Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/echo/a-value``{{open}}
 Local machine: `http://localhost:3000/echo/a-value`{{open}}
 
-You will figure out, that any change will be immediately applied. Appsody monitors the filesystem and restarts the server to apply the changes. The docker container remains the same and this increase the time to apply new changes.
+You will figure out, that any change will be immediately applied. 
+Appsody monitors the filesystem and restarts the server to apply the changes. The docker container remains the same and this increase the time to apply new changes.
