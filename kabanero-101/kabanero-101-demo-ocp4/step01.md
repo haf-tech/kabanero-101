@@ -34,7 +34,7 @@ OCP Web console: ``https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KA
 
 Retrieve install script for Kabanero Operator and install the operator/foundation resources, with enabling kAppNav:
 
-`curl -s -L https://github.com/kabanero-io/kabanero-operator/releases/download/0.3.0/install.sh -O && chmod +x install.sh`{{execute}}
+`curl -s -L https://github.com/kabanero-io/kabanero-operator/releases/download/0.3.1/install.sh -O && chmod +x install.sh`{{execute}}
 
 `ENABLE_KAPPNAV=yes ./install.sh`{{execute}}
 
@@ -42,7 +42,7 @@ This will take a time until all resources are successfully deployed (approx 15mi
 
 Install the Kabanero Custom Resource, but beforehand add the ``target namespace`` and if wanted change the Collection URL. The list of target namespaces enables Kabanero the deployment of an application in other namespaces as the default one ``kabanero``.
 
-`wget https://raw.githubusercontent.com/kabanero-io/kabanero-operator/0.3.0/config/samples/default.yaml`{{execute}}
+`wget https://raw.githubusercontent.com/kabanero-io/kabanero-operator/0.3.1/config/samples/default.yaml`{{execute}}
 
 ```yaml
 apiVersion: kabanero.io/v1alpha1
@@ -50,7 +50,7 @@ kind: Kabanero
 metadata:
   name: kabanero
 spec:
-  version: "0.3.0"
+  version: "0.3.1"
   # Add here the list of target namespaces
   targetNamespaces:
   - demo-express
@@ -79,7 +79,7 @@ Check also which Pipelines and Tasks are installed from Kabanero Collection:
 
 `oc get pipeline -n kabanero`{{execute}}
 
-`oc get task -n kabanero`{{executee}}
+`oc get task -n kabanero`{{execute}}
 
 ## Get URLs
 

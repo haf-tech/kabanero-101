@@ -178,8 +178,23 @@ Monitor the execution using the Tekton Dashboard
 
 ...and wait until the pipeline is successfully executed.
 
+It is also possible to monitor the logs directly from the container. The PipelineRun is a POD in ``kabanero`` namespace, containing different containers representing a step.
+
+`oc get pods -n kabanero | grep nodejs-express | awk {'print $1'}`{{execute}}
+
+Dependent in which phase the command is executed 1 to 3 pods will be returned, cause the PipelineRun has 3 tasks.
+Retrieve the logs from the pod and select the container/step
+`oc logs -f <pod-name> -c <container-name>`
+
+You will receive the container names, if you call the command without the ``-c`` flag.
+
+
 Afterwards is the application also available in kAppNav
 
 `td=$(oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}') && echo "https://$td/kappnav-ui/"`{{execute}}
 
 Use the kAppNav UI to see which k8s resources are belong to the application.
+
+Also the application is deployed in the target namespace ``demo-express``.
+
+`oc get pods, route -n demo-express`{{execute}}

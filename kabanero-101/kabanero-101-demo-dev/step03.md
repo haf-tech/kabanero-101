@@ -4,22 +4,10 @@ Kabanero and Appsody with NodeJS example
 
 Create and test a new `nodejs-express` application using an Appsody stack.
 
-## (Optional) OCP Login
-
-Initially you are logged in as cluster admin. To switch to developer from the _Terminal_ run:
-
-``oc login -u developer -p developer  [[HOST_SUBDOMAIN]]-8443-[[KATACODA_HOST]].environments.katacoda.com``{{execute}}
-
-This will log you in using the credentials:
-
-* **Username:** ``developer``
-* **Password:** ``developer``
-
-Use the same credentials to log into the web console.
 
 ## Create NodeJS application
 
-Use *nodejs-express* Appsody stack for creating a new application
+Use *nodejs-express* Appsody stack from the Kabanero Collection/Repository for creating a new application
 
 `mkdir -p ~/nodejs-express && cd ~/nodejs-express && appsody init kabanero/nodejs-express`{{execute}}
 
@@ -39,6 +27,18 @@ Open the main page
 
 Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com``{{open}}
 Local machine: `http://localhost:3000`{{open}}
+
+## Verification
+
+See that a docker container is running
+
+`docker ps | grep nodejs-express`{{execute}}
+
+Also is possible to monitor the logs
+
+`docker log -f $(docker ps | grep nodejs-express | awk {'print $1'})`{{execute}}
+
+
 
 ## Modify application code
 
@@ -65,3 +65,5 @@ app.get('/echo/:val', (req, res) => {
 Call the new URL (in a new browser)
 Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/echo/a-value``{{open}}
 Local machine: `http://localhost:3000/echo/a-value`{{open}}
+
+You will figure out, that any change will be immediately applied. Appsody monitors the filesystem and restarts the server to apply the changes. The docker container remains the same and this increase the time to apply new changes.
