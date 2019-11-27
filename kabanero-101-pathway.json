@@ -3,14 +3,14 @@
   "description": "Kabanero introduction",
   "courses": [
     {
-      "course_id": "kabanero-101-demo-ocp3",
-      "title": "Kabanero 101 workshop with OCPv3",
-      "description": "Kabanero workshop with installation and different examples using OCPv3"
+      "course_id": "kabanero-101-demo-ocp4",
+      "title": "Kabanero 101 workshop with OCPv4 - Server part",
+      "description": "Kabanero workshop handles the installation and configuration on an OCPv4 cluster"
     },
     {
-      "course_id": "kabanero-101-demo-ocp4",
-      "title": "Kabanero 101 workshop with OCPv4",
-      "description": "Kabanero workshop with installation and different examples using OCPv4"
+      "course_id": "kabanero-101-demo-dev",
+      "title": "Kabanero 101 workshop with OCPv4 - Dev part",
+      "description": "Kabanero workshop handles the development part"
     }
   ]
 }
