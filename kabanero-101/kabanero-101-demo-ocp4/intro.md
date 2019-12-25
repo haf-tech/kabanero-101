@@ -11,5 +11,5 @@ Following information about the environment and tools
 * OCPv4.2
 
 Versions
-* Kabanero 0.3.1
+* Kabanero 0.4.0
 

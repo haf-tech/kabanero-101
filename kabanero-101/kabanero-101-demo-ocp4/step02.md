@@ -98,7 +98,7 @@ kind: List
 EOF
 ```
 
-Afterwards we have needed two resources for the pipeline
+Afterwards we have two resources for the pipeline
 
 `oc get pipelineresource -n kabanero`{{execute}}
 

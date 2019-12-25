@@ -32,9 +32,13 @@ OCP Web console: ``https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KA
 
 ## Task
 
+Set the Version for later usage
+
+`export K_VERSION=0.4.0`{{execute}}
+
 Retrieve install script for Kabanero Operator and install the operator/foundation resources, with enabling kAppNav:
 
-`curl -s -L https://github.com/kabanero-io/kabanero-operator/releases/download/0.3.1/install.sh -O && chmod +x install.sh`{{execute}}
+`curl -s -L https://github.com/kabanero-io/kabanero-operator/releases/download/${K_VERSION}/install.sh -O && chmod +x install.sh`{{execute}}
 
 `ENABLE_KAPPNAV=yes ./install.sh`{{execute}}
 
@@ -42,7 +46,7 @@ This will take a time until all resources are successfully deployed (approx 15mi
 
 Install the Kabanero Custom Resource, but beforehand add the ``target namespace`` and if wanted change the Collection URL. The list of target namespaces enables Kabanero the deployment of an application in other namespaces as the default one ``kabanero``.
 
-`wget https://raw.githubusercontent.com/kabanero-io/kabanero-operator/0.3.1/config/samples/default.yaml`{{execute}}
+`wget https://raw.githubusercontent.com/kabanero-io/kabanero-operator/${K_VERSION}/config/samples/default.yaml`{{execute}}
 
 ```yaml
 apiVersion: kabanero.io/v1alpha1
@@ -50,14 +54,14 @@ kind: Kabanero
 metadata:
   name: kabanero
 spec:
-  version: "0.3.1"
+  version: "0.4.0"
   # Add here the list of target namespaces
   targetNamespaces:
   - demo-express
   collections: 
     repositories: 
     - name: central
-      url: https://github.com/kabanero-io/collections/releases/download/0.3.0/kabanero-index.yaml
+      url: https://github.com/kabanero-io/collections/releases/download/0.4.0/kabanero-index.yaml
       activateDefaultCollections: true
 
 ```
@@ -97,3 +101,9 @@ Open kAppNav UI - needs some time until the pods are ready
 
 `td=$(oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}') && echo "https://$td/kappnav-ui/"`{{execute}}
 
+
+## References
+
+* Kabanero Homepage: https://kabanero.io/
+* Kabanero Foundation/Operator: https://github.com/kabanero-io/kabanero-operator
+* Kabanero Collections: https://github.com/kabanero-io/collections
