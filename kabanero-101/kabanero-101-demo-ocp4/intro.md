@@ -13,3 +13,7 @@ Following information about the environment and tools
 Versions
 * Kabanero 0.4.0
 
+The following widgets are available during the course:
+* a Terminal for executing the commands
+* a OpenShift (Web)Console
+

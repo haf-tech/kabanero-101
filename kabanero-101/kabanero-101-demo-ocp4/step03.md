@@ -1,5 +1,7 @@
 Deploy Application with Pipeline - using a Webhook.
 
+**This step does not work properly with Katacoda, due Internet routing issues**
+
 ## Target
 
 Deploys an application from GitHub repository using a predefined Pipeline. The pipeline will be triggered after a Git commit, with the help of a Webhook.

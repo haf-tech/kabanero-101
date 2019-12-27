@@ -37,7 +37,7 @@ See the definition of the pipeline and determines the referenced tasks
 
 The Pipeline definition reference the following tasks
 * build-push-task => nodejs-express-build-push-task
-* image-scan-task => image-scan-task
+* image-scan-task => nodejs-express-image-scan-task
 * deploy-task => nodejs-express-deploy-task
 
 The last two tasks will be executed in parallel.
@@ -46,10 +46,10 @@ The used tasks:
 
 `oc get task -n kabanero nodejs-express-build-push-task -o yaml`{{execute}}
 
-This extract the assemble, validates if thee collection is available before building and pushing the new created docker image.
+This extract the assemble, validates if the collection is available before building and pushing the new created docker image.
 Consider that two input parameter are used, referenced as ``PipelineResource``, named ``git-source`` and ``docker-image``.
 
-`oc get task -n kabanero image-scan-task -o yaml`{{execute}}
+`oc get task -n kabanero nodejs-express-image-scan-task -o yaml`{{execute}}
 
 This pulls the new created image and scans it.
 
@@ -65,7 +65,7 @@ Set some variables to our needs
 ```
 namespace=kabanero
 APP_REPO=https://github.com/haf-tech/k101-nodejs-express.git
-REPO_BRANCH=master
+REPO_BRANCH=kabanero-run
 DOCKER_IMAGE="image-registry.openshift-image-registry.svc:5000/demo-express/k101-nodejs-express:v0.1"
 ```
 
@@ -102,7 +102,7 @@ Afterwards we have two resources for the pipeline
 
 `oc get pipelineresource -n kabanero`{{execute}}
 
-To access the GitHub repository is it needed to have a Secret with the GitHub PAT (Personal Access Token). 
+To access the GitHub repository is it needed to have a Secret with the GitHub PAT (Personal Access Token - [HowTo](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line), with `admin:repo_hook, repo`). 
 Add the Secret using the Tekton Dashboard
 
 `td=$(oc get routes tekton-dashboard -n tekton-pipelines -o jsonpath='{.spec.host}') && echo "http://$td:80"`{{execute}}
@@ -115,6 +115,7 @@ Add the Secret using the Tekton Dashboard
  1. Access To: ``Git Srever``
  1. Username: your Git username
  1. Password/Token: your PAT
+ 1. Service Account: `kabanero-operator`
  1. Server URL: ``https://github.com``
 1. Submit
 
@@ -136,16 +137,17 @@ Go through the dashboard and check
 ## Execute manually the pipeline
 
 To trigger a Pipeline a ``PipelineRun`` will be applied which reference the wanted Pipeline.
+Consider to change here `APP_REPO` if you are using another Git repo, also the `REPO_BRANCH`.
 
 Set (again) the needed information
 ```
 namespace=kabanero
 APP_REPO=https://github.com/haf-tech/k101-nodejs-express.git
-REPO_BRANCH=master
+REPO_BRANCH=kabanero-run
 DOCKER_IMAGE="image-registry.openshift-image-registry.svc:5000/demo-express/k101-nodejs-express:v0.1"
 ```
 
-Create and execute the PipelineRun definition
+Create and execute the PipelineRun definition (needs approx 25min).
 ```
 cat <<EOF | oc -n ${namespace} apply -f -
 apiVersion: tekton.dev/v1alpha1

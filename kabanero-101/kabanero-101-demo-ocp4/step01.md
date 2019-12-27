@@ -65,27 +65,37 @@ spec:
       activateDefaultCollections: true
 
 ```
+
+Create the target namespaces/projects
+
+`oc new-project demo-express`{{execute}}
+
+Apply the Kabanero CR
+
 `oc apply -n kabanero -f default.yaml`{{execute}}
 
 ## Verification
+
+Verify the installation and get the details about the Kabanero resources.
 
 Wait that all pods are up and running
 
 `oc get pods -n kabanero -w`{{execute}}
 
-Verify the installation and get the routes to the Kabanero landing and Tekton Dashboard pages
+...check also if all pods are running or in completed state:
 
 `oc get pods --all-namespaces`{{execute}}
 
-All pods should be in running or completed state.
-
-Check also which Pipelines and Tasks are installed from Kabanero Collection:
+Check which Pipelines and Tasks are installed from Kabanero Collection:
 
 `oc get pipeline -n kabanero`{{execute}}
 
 `oc get task -n kabanero`{{execute}}
 
 ## Get URLs
+
+Now verify and retrieve the different URLs like Kabanero landing and Tekton Dashboard pages.
+A TLS warning will occurred in the browser, due of the self signed certificates. Please accept them.
 
 Open OpenShift console
 
