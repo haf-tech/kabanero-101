@@ -15,5 +15,5 @@ Versions
 
 The following widgets are available during the course:
 * a Terminal for executing the commands
-* a OpenShift (Web)Console
+* an OpenShift (Web)Console
 
