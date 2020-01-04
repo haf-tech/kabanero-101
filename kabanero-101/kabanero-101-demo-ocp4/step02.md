@@ -200,3 +200,7 @@ Use the kAppNav UI to see which k8s resources are belong to the application.
 Also the application is deployed in the target namespace ``demo-express``.
 
 `oc get pods, route -n demo-express`{{execute}}
+
+...with a predefined URL:
+
+`td=$(oc get routes k101-nodejs-express -n demo-express -o jsonpath='{.spec.host}') && echo "http://$td/"`{{execute}}

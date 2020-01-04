@@ -39,18 +39,25 @@ Use the Tekton Dashboard to configure the Webhook
 
 `td=$(oc get routes tekton-dashboard -n tekton-pipelines -o jsonpath='{.spec.host}') && echo "http://$td:80"`{{execute}}
 
-* Select ``Webhooks``
-* Click the button ``Add Webhook``
+* Select `Webhooks`
+* Click the button `Add Webhook`
 * Name: e.g. "demoexpress-webhook" 
 * Repository URL: Github repository URL, e.g. https://github.com/haf-tech/k101-nodejs-express
-* Access Token: use the Github PAT
-* Namespace: Namespace containing the Pipelines, ``kabanero``
-* Pipeline: the pipeline which will be triggered, depends from tech stack, e.g. ``nodejs-express-build-push-deploy-pipeline``
-* Service Account: ``kabanero-operator``
-* Docker Registry: e.g. "docker-registry.default.svc:5000/demo-express"
+* Access Token: use the GitHub PAT
+* Namespace: Namespace containing the Pipelines, `kabanero`
+* Pipeline: the pipeline which will be triggered, depends from tech stack, e.g. `nodejs-express-build-push-deploy-pipeline`
+* Service Account: `kabanero-operator`
+* Docker Registry: e.g. "image-registry.openshift-image-registry.svc:5000/demo-express"
 * Create
 
-After a short period is the Webhook created in the Github repository.
+After a short period is the Webhook created in the GitHub repository.
+Sometimes is it helpful to `Redeliver` the webhook because the relevant resources were not ready during the WebHook creation in GitHub.
+
+* Select in GitHub the repository
+* `Settings` > `Webhooks`
+* Select the new created Webhook
+* at the bottom verify the status of the last delivery
+* if negative, select the last try and press `Redeliver`
 
 
 ## Execute the pipeline via Webhook via Github commit
@@ -61,12 +68,11 @@ This will trigger a Pipeline via the Webhook.
 To check the Webhook execution
 
 * open the GitHub repository
-* Select ``Settings``
-* and in ``Webhooks`` the created one
+* Select `Settings`
+* and in `Webhooks` the created one
 * ...in the bottom is a listing of the sent webhooks.
 
-Any item contains details about request and response. Also it possible to ``redeliver`` a webhook request.
-
+Any item contains details about request and response. Also it possible to `redeliver` a webhook request. **Redeliver** the commit only if now PipelineRun is already executed, otherwise every re-delivery will execute a new PipelineRun.
 
 Check the existing PipelineRuns
 
@@ -83,3 +89,7 @@ Afterwards is the application also available in kAppNav
 `td=$(oc get routes kappnav-ui-service -n kappnav -o jsonpath='{.spec.host}') && echo "https://$td/kappnav-ui/"`{{execute}}
 
 Use the kAppNav UI to see which k8s resources are belong to the application.
+
+...and the application itself:
+
+`td=$(oc get routes k101-nodejs-express -n demo-express -o jsonpath='{.spec.host}') && echo "http://$td/"`{{execute}}
