@@ -37,6 +37,10 @@ Open the browser
 * Katacoda: ``http://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com``{{open}}
 * Local machine: `http://localhost:8080`{{open}}
 
+Stop the docker container
+
+`docker stop nodejsexpress-test`{{execute}}
+
 
 ## Extract
 
@@ -53,3 +57,12 @@ See that the Dockerfile includes the general base dependencies first, before ins
 The application source code is in the directory ``user-app``
 
 `cd ~/extract/k101-nodejs-express/user-app`{{execute}}
+
+You can verify 
+* the project template structure
+* and the docker image definition 
+in the Kabanero Collection: https://github.com/kabanero-io/collections/tree/master/incubator/nodejs-express
+
+## References
+
+* Kabanero Collections: https://github.com/kabanero-io/collections

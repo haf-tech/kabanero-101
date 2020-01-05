@@ -9,7 +9,7 @@ Following information about the environment and tools
 * VSCode
 
 Versions
-* Kabanero 0.3.1
+* Kabanero 0.4.0
 * Appsody 0.5.0
 
 

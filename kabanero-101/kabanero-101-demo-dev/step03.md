@@ -2,7 +2,7 @@ Kabanero and Appsody with NodeJS example
 
 ## Target
 
-Create and test a new `nodejs-express` application using an Appsody stack.
+Create and test a new `nodejs-express` application using an Appsody stack from the Kabanero Collection.
 
 
 ## Create NodeJS application
@@ -36,7 +36,7 @@ See that a docker container is running
 
 `docker ps | grep nodejs-express`{{execute}}
 
-Also is possible to monitor the logs
+Also is it possible to monitor the logs
 
 `docker logs -f $(docker ps | grep nodejs-express | awk {'print $1'})`{{execute}}
 
@@ -71,4 +71,4 @@ Katacoda: ``http://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.kataco
 Local machine: `http://localhost:3000/echo/a-value`{{open}}
 
 You will figure out, that any change will be immediately applied. 
-Appsody monitors the filesystem and restarts the server to apply the changes. The docker container remains the same and this increase the time to apply new changes.
+Appsody monitors the filesystem and restarts the server to apply the changes. The docker container remains the same and this increase the time to apply new changes. Verify this observation in the log output.
