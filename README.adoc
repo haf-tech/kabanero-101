@@ -13,6 +13,8 @@ Kabanero 101 - Intro and working examples.
 | URL | n/a
 |===
 
+NOTE: *Archived* - The katacoda sessions are not perfectly matching the requirements for such kind of edu sessions (1h is not enough)
+
 toc::[]
 
 == Overview
